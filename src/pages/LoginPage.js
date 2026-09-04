@@ -62,11 +62,11 @@ const LoginPage = () => {
         throw new Error(data.message || 'Login failed');
       }
 
-      // Save token and user details to localStorage
+      // Saving token and user details to localStorage
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user || { username }));
 
-      // Redirect to Admin Dashboard
+      // Redarecting to Admin Dashboard
       navigate('/admin');
     } catch (err) {
       setError(err.message);
@@ -77,10 +77,9 @@ const LoginPage = () => {
     <div className="page">
       <div className="wrap">
         <header className="admin-header" style={{ justifyContent: 'flex-start' }}>
-          <Link to="/" className="logo">
-            <span className="logo__mark">a</span>
-            airbnb
-          </Link>
+        <Link to="/">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUAG0iTdwwIPvRT8JoFAk91vie50WVoq2XYrjxDjvJZg&s=10" alt="" style={{ height: '35px', width: 'auto', 'margin-top': '20px' }} />
+        </Link>
         </header>
 
         <main className="auth-shell">

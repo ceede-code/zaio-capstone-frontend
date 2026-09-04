@@ -35,7 +35,6 @@ function App() {
         <Route path="/locations/:id" element={<LocationDetailsPage />} />
         <Route path="/login" element={<LoginPage />} />
         
-        {/* Admin/Host Protected Routes */}
         <Route path="/admin" element={
           <Protected><AdminDashboardPage /></Protected>
         } />

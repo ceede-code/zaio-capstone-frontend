@@ -22,7 +22,7 @@ const ListingFormPage = () => {
     serviceFee: 30,
     occupancyTaxes: 20,
     amenities: 'wifi, kitchen, parking',
-    images: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688'
+    images: ' '
   });
 
   // Pre-fill when editing
@@ -83,9 +83,9 @@ const ListingFormPage = () => {
   return (
     <div className="page">
       <div className="wrap">
-        <header className="admin-header">
-          <Link to="/" className="logo"><span className="logo__mark">a</span>airbnb</Link>
-        </header>
+      <Link to="/">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUAG0iTdwwIPvRT8JoFAk91vie50WVoq2XYrjxDjvJZg&s=10" alt="" style={{ height: '35px', width: 'auto', 'margin-top': '20px' }} />
+      </Link>
 
         <main>
           <h1 className="form-page-title">{id ? 'Update Listing' : 'Create Listing'}</h1>
@@ -133,12 +133,12 @@ const ListingFormPage = () => {
               </div>
 
               <div className="field">
-                <label htmlFor="amenities">Amenities (comma-separated)</label>
+                <label htmlFor="amenities">Amenities (separate with comma.)</label>
                 <input type="text" id="amenities" value={formData.amenities} onChange={handleChange} />
               </div>
 
               <div className="field">
-                <label htmlFor="images">Image URLs (comma-separated)</label>
+                <label htmlFor="images">Image URLs (separate with comma)</label>
                 <input type="text" id="images" value={formData.images} onChange={handleChange} />
               </div>
             </div>

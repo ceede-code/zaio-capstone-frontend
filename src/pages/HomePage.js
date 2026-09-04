@@ -16,10 +16,10 @@ const Home = () => {
 <div className="page">
   <header className="topnav">
     <div className="wrap topnav__row">
-      <Link to="/" className="logo">
-        <span className="logo__mark">a</span>
-        airbnb
-      </Link>
+
+    <Link to="/">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUAG0iTdwwIPvRT8JoFAk91vie50WVoq2XYrjxDjvJZg&s=10" alt="" style={{ height: '35px', width: 'auto' }} />
+    </Link>
 
       <nav className="primary-nav">
         <a href="index.html" className="is-active">Places to stay</a>
@@ -28,12 +28,12 @@ const Home = () => {
       </nav>
 
       <div className="nav-right">
-        <a href="#" className="nav-link">Become a host</a>
-        <button className="icon-btn" aria-label="Change language/region">🌐</button>
+        <Link to="/Admin" className="nav-link">Become a host</Link>
+        <button className="icon-btn" aria-label="Change language/region"><span className='material-symbols-outlined' >globe</span></button>
 
         <button className="profile-menu" aria-label="Open menu" style={{ position: 'relative', cursor: 'pointer', background: 'none', border: 'none', font: 'inherit', display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 12px' }}>
           <span aria-hidden="true">≡</span>
-          <span className="avatar"><img src="#" alt="" /></span>
+          <span className="avatar"><img src="https://static.vecteezy.com/system/resources/thumbnails/005/544/718/small/profile-icon-design-free-vector.jpg" alt="" /></span>
           <select 
             onChange={(e) => {
               if (e.target.value === 'login') navigate('/login');
@@ -56,12 +56,6 @@ const Home = () => {
           <select className="search-pill__value" style={{ border: 'none', background: 'transparent', font: 'inherit', color: 'inherit', padding: 0, margin: 0, outline: 'none', appearance: 'auto', cursor: 'pointer' }}>
             <option value="Select">Select a location</option>
             <option value="All">All locations</option>
-            <option value="Paris">Paris</option>
-            <option value="Tokyo">Tokyo</option>
-            <option value="New York">New York</option>
-            <option value="London">London</option>
-            <option value="Sydney">Sydney</option>
-            <option value="Cape Town">Cape Town</option>
           </select>
         </div>
         <div className="search-pill__divider"></div>
@@ -80,10 +74,8 @@ const Home = () => {
           <span className="search-pill__value">0 guests</span>
         </div>
 
-        {/* TO ADD JS INCREMENT */}
-
         <div className="search-pill__submit">
-          <button className="search-btn" onClick={handleSearch} aria-label="Search">🔍</button>
+          <button className="search-btn" onClick={handleSearch} aria-label="Search"><span className='material-symbols-outlined' >search</span></button>
         </div>
       </div>
     </div>
@@ -91,7 +83,7 @@ const Home = () => {
 
   <section className="hero">
     <div className="hero__media">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuuho3kKtlKdd6yXUaj7xCIuxIoaT3mj40ASMtHSdLUS0MdR4y82-XUK0w&s=10" alt="Modern house at dusk" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ3hBIghhqNVz4ULvQE0s2xbGox9h7gbgNXC9Od3p0W22wAJfpYbi8myfr&s=10" alt="cover photo" />
     </div>
     <div className="hero__media-fallback"></div>
 
@@ -260,12 +252,10 @@ const Home = () => {
           <span>Sitemap</span>
         </div>
         <div className="footer-bottom__right">
-          <span className="footer-bottom__lang">🌐 English (US)</span>
+          <span className="footer-bottom__lang"><span className='material-symbols-outlined'>globe</span> English (US)</span>
           <span className="footer-bottom__lang">$ USD</span>
           <span className="footer-bottom__social">
-            <span aria-hidden="true">𝔉</span>
             <span aria-hidden="true">𝕏</span>
-            <span aria-hidden="true">◎</span>
           </span>
         </div>
       </div>

@@ -31,8 +31,36 @@ const LocationPage = () => {
 
   return (
     <div className="page">
-      {/* Retain topnav structure, replacing a href with Link */}
+    <header className="topnav">
+      <div className="wrap topnav__row">
+       
+      <Link to="/">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUAG0iTdwwIPvRT8JoFAk91vie50WVoq2XYrjxDjvJZg&s=10" alt="" style={{ height: '35px', width: 'auto' }} />
+      </Link>
+  
+        <div className="nav-right">
+          <Link to="/Admin" className="nav-link">Become a host</Link>
+          <button className="icon-btn" aria-label="Change language/region"><span className='material-symbols-outlined' >globe</span></button>
+  
+          <button className="profile-menu" aria-label="Open menu" style={{ position: 'relative', cursor: 'pointer', background: 'none', border: 'none', font: 'inherit', display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 12px' }}>
+            <span aria-hidden="true">≡</span>
+            <span className="avatar"><img src="https://static.vecteezy.com/system/resources/thumbnails/005/544/718/small/profile-icon-design-free-vector.jpg" alt="" /></span>
+            <select 
+              onChange={(e) => {
+                if (e.target.value === 'login') navigate('/login');
+              }}
+              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0, cursor: 'pointer' }}
+            >
+              <option value="" disabled selected>Select</option>
+              <option value="login">Login</option>
+            </select>
+          </button>
+        </div>
+      </div>
+    </header>
       <main className="wrap">
+
+
         <div className="results-header">
           <h1 className="results-header__count">{listings.length} stays</h1>
           <p className="results-header__sub">{cityQuery} stays available</p>

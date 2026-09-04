@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import '../App.css';
 
 const AdminDashboardPage = () => {
-  const [view, setView] = useState('reservations'); // 'reservations' or 'listings'
+  const [view, setView] = useState('reservations'); 
   const [reservations, setReservations] = useState([]);
   const [listings, setListings] = useState([]);
   const navigate = useNavigate();
@@ -56,7 +56,9 @@ const AdminDashboardPage = () => {
     <div className="page">
       <div className="wrap">
         <header className="admin-header">
-          <Link to="/" className="logo"><span className="logo__mark">a</span>airbnb</Link>
+        <Link to="/">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUAG0iTdwwIPvRT8JoFAk91vie50WVoq2XYrjxDjvJZg&s=10" alt="" style={{ height: '35px', width: 'auto' }} />
+        </Link>
           <div className="admin-user">
             <span className="admin-user__name">{user.username || 'Host'}</span>
             <button onClick={handleLogout} style={{ marginLeft: '10px', cursor: 'pointer' }}>Logout</button>
