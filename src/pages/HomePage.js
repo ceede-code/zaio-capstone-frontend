@@ -1,13 +1,25 @@
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Home = () => {
+
+  const [selectedCity, setSelectedCity] = useState('All');
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    navigate(`/locations?city=${selectedCity}`);
+  };
+  
+
+
     return(
 <div className="page">
   <header className="topnav">
     <div className="wrap topnav__row">
-      <a href="index.html" className="logo">
+      <Link to="/" className="logo">
         <span className="logo__mark">a</span>
         airbnb
-      </a>
+      </Link>
 
       <nav className="primary-nav">
         <a href="index.html" className="is-active">Places to stay</a>
@@ -22,10 +34,14 @@ const Home = () => {
         <button className="profile-menu" aria-label="Open menu" style={{ position: 'relative', cursor: 'pointer', background: 'none', border: 'none', font: 'inherit', display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 12px' }}>
           <span aria-hidden="true">≡</span>
           <span className="avatar"><img src="#" alt="" /></span>
-          <select style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0, cursor: 'pointer', border: 'none', background: 'transparent', font: 'inherit' }} aria-label="Login options">
-            <option value="" selected disabled>Select</option>
+          <select 
+            onChange={(e) => {
+              if (e.target.value === 'login') navigate('/login');
+            }}
+            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0, cursor: 'pointer' }}
+          >
+            <option value="" disabled selected>Select</option>
             <option value="login">Login</option>
-            <option value="signup">Sign up</option>
           </select>
         </button>
       </div>
@@ -67,7 +83,7 @@ const Home = () => {
         {/* TO ADD JS INCREMENT */}
 
         <div className="search-pill__submit">
-          <button className="search-btn" aria-label="Search">🔍</button>
+          <button className="search-btn" onClick={handleSearch} aria-label="Search">🔍</button>
         </div>
       </div>
     </div>
