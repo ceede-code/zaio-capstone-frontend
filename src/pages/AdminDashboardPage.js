@@ -1,133 +1,135 @@
+import React, { useEffect, useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import '../App.css';
 
+const AdminDashboardPage = () => {
+  const [view, setView] = useState('reservations'); // 'reservations' or 'listings'
+  const [reservations, setReservations] = useState([]);
+  const [listings, setListings] = useState([]);
+  const navigate = useNavigate();
 
-const adminDashboardPage = () => {
-    return (
-<div className="page">
-  <div className="wrap">
-    <header className="admin-header">
-      <a href="index.html" className="logo">
-        <span className="logo__mark">a</span>
-        airbnb
-      </a>
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  const token = localStorage.getItem('token');
 
-      <div className="admin-user">
-        <span className="admin-user__name">John Doe</span>
-        <div className="admin-user__controls">
-          <span aria-hidden="true">≡</span>
-          <span className="admin-user__avatar">☺</span>
-        </div>
-      </div>
-    </header>
+  // Load reservations and listings
+  const fetchData = () => {
+    fetch('http://localhost:5000/api/reservations/host', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then((res) => res.json())
+      .then((data) => setReservations(Array.isArray(data) ? data : []))
+      .catch((err) => console.error(err));
 
-    <nav className="admin-nav">
-      <button className="admin-nav__btn">View Reservations</button>
-      <button className="admin-nav__btn">View Listings</button>
-      <button className="admin-nav__btn">Create Listing</button>
-    </nav>
+    fetch('http://localhost:5000/api/accommodations')
+      .then((res) => res.json())
+      .then((data) => setListings(Array.isArray(data) ? data : []))
+      .catch((err) => console.error(err));
+  };
 
-    <main>
-      <h1 className="reservations-title">My Reservations</h1>
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-      <table className="reservations-table">
-        <thead>
-          <tr>
-            <th>Booked by</th>
-            <th>Property</th>
-            <th>Checkin</th>
-            <th>Checkout</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Johann Coetzee</td>
-            <td>Property 1</td>
-            <td>19/06/2024</td>
-            <td>24/06/2024</td>
-            <td><button className="btn-delete">Delete</button></td>
-          </tr>
-          <tr>
-            <td>Asif Hassam</td>
-            <td>Property 2</td>
-            <td>19/06/2024</td>
-            <td>19/06/2024</td>
-            <td><button className="btn-delete">Delete</button></td>
-          </tr>
-          <tr>
-            <td>Kago Kola</td>
-            <td>Property 1</td>
-            <td>25/06/2024</td>
-            <td>30/06/2024</td>
-            <td><button className="btn-delete">Delete</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </main>
-  </div>
+  const handleDeleteReservation = async (id) => {
+    await fetch(`http://localhost:5000/api/reservations/${id}`, {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    setReservations(reservations.filter((r) => r._id !== id));
+  };
 
-  <footer className="site-footer" style={{ marginTop: '25px' }}>
-    <div className="wrap">
-      <div className="footer-cols">
-        <div>
-          <h4>Support</h4>
-          <ul>
-            <li>Help Center</li>
-            <li>AirCover</li>
-            <li>Safety information</li>
-            <li>Cancellation options</li>
-            <li>Our COVID-19 response</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Community</h4>
-          <ul>
-            <li>Airbnb.org: disaster relief</li>
-            <li>Support Afghan refugees</li>
-            <li>Celebrating diversity &amp; belonging</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Hosting</h4>
-          <ul>
-            <li>Airbnb your home</li>
-            <li>AirCover for Hosts</li>
-            <li>Explore hosting resources</li>
-            <li>Visit our community forum</li>
-            <li>How to host responsibly</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Airbnb</h4>
-          <ul>
-            <li>Newsroom</li>
-            <li>New features</li>
-            <li>Careers</li>
-            <li>Investors</li>
-            <li>Gift cards</li>
-          </ul>
-        </div>
-      </div>
-      <div className="footer-bottom">
-        <div className="footer-bottom__left">
-          <span>© 2026 Airbnb clone, Inc.</span>
-          <span>Privacy</span>
-          <span>Terms</span>
-          <span>Sitemap</span>
-        </div>
-        <div className="footer-bottom__right">
-          <span className="footer-bottom__lang">🌐 English (US)</span>
-          <span className="footer-bottom__lang">$ USD</span>
-          <span className="footer-bottom__social">
-            <span aria-hidden="true">𝔉</span>
-            <span aria-hidden="true">𝕏</span>
-            <span aria-hidden="true">◎</span>
-          </span>
-        </div>
+  const handleDeleteListing = async (id) => {
+    await fetch(`http://localhost:5000/api/accommodations/${id}`, {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    setListings(listings.filter((item) => item._id !== id));
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    navigate('/login');
+  };
+
+  return (
+    <div className="page">
+      <div className="wrap">
+        <header className="admin-header">
+          <Link to="/" className="logo"><span className="logo__mark">a</span>airbnb</Link>
+          <div className="admin-user">
+            <span className="admin-user__name">{user.username || 'Host'}</span>
+            <button onClick={handleLogout} style={{ marginLeft: '10px', cursor: 'pointer' }}>Logout</button>
+          </div>
+        </header>
+
+        <nav className="admin-nav" style={{ display: 'flex', gap: '10px', margin: '20px 0' }}>
+          <button className="admin-nav__btn" onClick={() => setView('reservations')}>View Reservations</button>
+          <button className="admin-nav__btn" onClick={() => setView('listings')}>View Listings</button>
+          <button className="admin-nav__btn" onClick={() => navigate('/admin/create')}>Create Listing</button>
+        </nav>
+
+        <main>
+          {view === 'reservations' ? (
+            <>
+              <h1 className="reservations-title">Reservations</h1>
+              <table className="reservations-table">
+                <thead>
+                  <tr>
+                    <th>Booked by</th>
+                    <th>Property</th>
+                    <th>Checkin</th>
+                    <th>Checkout</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {reservations.map((res) => (
+                    <tr key={res._id}>
+                      <td>{res.user?.username || 'Guest'}</td>
+                      <td>{res.property || 'Property'}</td>
+                      <td>{res.checkIn}</td>
+                      <td>{res.checkOut}</td>
+                      <td>
+                        <button className="btn-delete" onClick={() => handleDeleteReservation(res._id)}>Delete</button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+          ) : (
+            <>
+              <h1 className="reservations-title">My Listings</h1>
+              <table className="reservations-table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Location</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {listings.map((item) => (
+                    <tr key={item._id}>
+                      <td>{item.title}</td>
+                      <td>{item.location}</td>
+                      <td>${item.price}</td>
+                      <td>
+                        <button onClick={() => navigate(`/admin/edit/${item._id}`)} style={{ marginRight: '8px' }}>Edit</button>
+                        <button className="btn-delete" onClick={() => handleDeleteListing(item._id)}>Delete</button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+          )}
+        </main>
       </div>
     </div>
-  </footer>
-</div>
-    )
-}
+  );
+};
 
-export default adminDashboardPage;
+export default AdminDashboardPage;
