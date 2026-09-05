@@ -13,7 +13,7 @@ const LocationPage = () => {
   const cityQuery = queryParams.get('city') || 'All';
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/accommodations')
+    fetch('https://zaio-capstone-backend.onrender.com/api/accommodations')
       .then((res) => res.json())
       .then((data) => {
         if (cityQuery !== 'All' && cityQuery !== 'Select') {

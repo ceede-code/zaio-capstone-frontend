@@ -28,7 +28,7 @@ const ListingFormPage = () => {
   // Pre-fill when editing
   useEffect(() => {
     if (id) {
-      fetch('http://localhost:5000/api/accommodations')
+      fetch('https://zaio-capstone-backend.onrender.com/api/accommodations')
         .then((res) => res.json())
         .then((data) => {
           const item = data.find((l) => l._id === id);
@@ -64,8 +64,8 @@ const ListingFormPage = () => {
     };
 
     const endpoint = id 
-      ? `http://localhost:5000/api/accommodations/${id}` 
-      : 'http://localhost:5000/api/accommodations';
+      ? `https://zaio-capstone-backend.onrender.com/api/accommodations/${id}` 
+      : 'https://zaio-capstone-backend.onrender.com/api/accommodations';
     const method = id ? 'PUT' : 'POST';
 
     await fetch(endpoint, {

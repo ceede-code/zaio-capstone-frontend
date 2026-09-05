@@ -14,7 +14,7 @@ const LocationDetailsPage = () => {
   const [bookingStatus, setBookingStatus] = useState('');
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/accommodations`)
+    fetch(`https://zaio-capstone-backend.onrender.com/api/accommodations`)
       .then((res) => res.json())
       .then((data) => {
         const found = data.find((item) => item._id === id);
@@ -51,7 +51,7 @@ const LocationDetailsPage = () => {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/api/reservations', {
+      const res = await fetch('https://zaio-capstone-backend.onrender.com/api/reservations', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
