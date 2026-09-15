@@ -1999,3 +1999,138 @@ img {
   color: #222;
   cursor: pointer;
 }
+
+/*--*/
+
+.dp-section {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #222222;
+  max-width: 760px;
+  padding: 24px 8px;
+}
+
+.dp-title {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111111;
+}
+
+.dp-subtitle {
+  margin: 0 0 28px 0;
+  font-size: 13px;
+  color: #6a6a6a;
+}
+
+.dp-months {
+  display: flex;
+  gap: 56px;
+  flex-wrap: wrap;
+}
+
+.dp-month {
+  flex: 1 1 320px;
+  min-width: 280px;
+}
+
+.dp-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.dp-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111111;
+}
+
+.dp-nav {
+  position: absolute;
+  font-size: 16px;
+  color: #222222;
+  cursor: default;
+}
+
+.dp-nav:first-child {
+  left: 0;
+}
+
+.dp-nav:last-child {
+  right: 0;
+}
+
+.dp-hidden {
+  visibility: hidden;
+}
+
+.dp-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 2px;
+}
+
+.dp-weekday {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #717171;
+  padding-bottom: 10px;
+}
+
+.dp-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  font-size: 13px;
+  color: #222222;
+}
+
+.dp-dim {
+  color: #cacaca;
+}
+
+.dp-range {
+  background: #f2f2f2;
+}
+
+.dp-start {
+  border-radius: 999px 0 0 999px;
+}
+
+.dp-end {
+  border-radius: 0 999px 999px 0;
+}
+
+.dp-selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #111111;
+  color: #ffffff;
+}
+
+.dp-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+
+.dp-icon {
+  display: flex;
+  color: #222222;
+}
+
+.dp-clear {
+  font-size: 13px;
+  color: #222222;
+  text-decoration: underline;
+  cursor: default;
+}

@@ -187,6 +187,145 @@ const LocationDetailsPage = () => {
           </aside>
         </div>
 
+<section className="dp-section">
+  <h2 className="dp-title">7 nights in New York</h2>
+  <p className="dp-subtitle">Feb 19, 2022 - Feb 26, 2022</p>
+
+  <div className="dp-months">
+    <div className="dp-month">
+      <div className="dp-header">
+        <span className="dp-nav">‹</span>
+        <span className="dp-name">February 2022</span>
+        <span className="dp-nav dp-hidden">›</span>
+      </div>
+
+      <div className="dp-grid">
+        <div className="dp-weekday">Su</div>
+        <div className="dp-weekday">Mo</div>
+        <div className="dp-weekday">Tu</div>
+        <div className="dp-weekday">We</div>
+        <div className="dp-weekday">Th</div>
+        <div className="dp-weekday">Fr</div>
+        <div className="dp-weekday">Sa</div>
+
+        <div className="dp-cell" />
+        <div className="dp-cell" />
+        <div className="dp-cell dp-dim">1</div>
+        <div className="dp-cell dp-dim">2</div>
+        <div className="dp-cell dp-dim">3</div>
+        <div className="dp-cell dp-dim">4</div>
+        <div className="dp-cell dp-dim">5</div>
+
+        <div className="dp-cell dp-dim">6</div>
+        <div className="dp-cell dp-dim">7</div>
+        <div className="dp-cell dp-dim">8</div>
+        <div className="dp-cell dp-dim">9</div>
+        <div className="dp-cell dp-dim">10</div>
+        <div className="dp-cell dp-dim">11</div>
+        <div className="dp-cell dp-dim">12</div>
+
+        <div className="dp-cell dp-dim">13</div>
+        <div className="dp-cell dp-dim">14</div>
+        <div className="dp-cell dp-dim">15</div>
+        <div className="dp-cell dp-dim">16</div>
+        <div className="dp-cell dp-dim">17</div>
+        <div className="dp-cell dp-dim">18</div>
+        <div className="dp-cell">19</div>
+
+        <div className="dp-cell">20</div>
+        <div className="dp-cell">21</div>
+        <div className="dp-cell">22</div>
+        <div className="dp-cell">23</div>
+        <div className="dp-cell">24</div>
+        <div className="dp-cell">25</div>
+        <div className="dp-cell">26</div>
+
+        <div className="dp-cell">27</div>
+        <div className="dp-cell">28</div>
+        <div className="dp-cell" />
+        <div className="dp-cell" />
+        <div className="dp-cell" />
+        <div className="dp-cell" />
+        <div className="dp-cell" />
+      </div>
+    </div>
+
+    <div className="dp-month">
+      <div className="dp-header">
+        <span className="dp-nav dp-hidden">‹</span>
+        <span className="dp-name">March 2022</span>
+        <span className="dp-nav">›</span>
+      </div>
+
+      <div className="dp-grid">
+        <div className="dp-weekday">Su</div>
+        <div className="dp-weekday">Mo</div>
+        <div className="dp-weekday">Tu</div>
+        <div className="dp-weekday">We</div>
+        <div className="dp-weekday">Th</div>
+        <div className="dp-weekday">Fr</div>
+        <div className="dp-weekday">Sa</div>
+
+        <div className="dp-cell" />
+        <div className="dp-cell" />
+        <div className="dp-cell dp-dim">1</div>
+        <div className="dp-cell dp-dim">2</div>
+        <div className="dp-cell dp-dim">3</div>
+        <div className="dp-cell dp-range dp-start">
+          <span className="dp-selected">4</span>
+        </div>
+        <div className="dp-cell dp-range">5</div>
+
+        <div className="dp-cell dp-range">6</div>
+        <div className="dp-cell dp-range">7</div>
+        <div className="dp-cell dp-range">8</div>
+        <div className="dp-cell dp-range">9</div>
+        <div className="dp-cell dp-range dp-end">
+          <span className="dp-selected">10</span>
+        </div>
+        <div className="dp-cell">11</div>
+        <div className="dp-cell">12</div>
+
+        <div className="dp-cell">13</div>
+        <div className="dp-cell">14</div>
+        <div className="dp-cell">15</div>
+        <div className="dp-cell">16</div>
+        <div className="dp-cell">17</div>
+        <div className="dp-cell">18</div>
+        <div className="dp-cell">19</div>
+
+        <div className="dp-cell">20</div>
+        <div className="dp-cell">21</div>
+        <div className="dp-cell">22</div>
+        <div className="dp-cell">23</div>
+        <div className="dp-cell">24</div>
+        <div className="dp-cell">25</div>
+        <div className="dp-cell">26</div>
+
+        <div className="dp-cell">27</div>
+        <div className="dp-cell">28</div>
+        <div className="dp-cell">29</div>
+        <div className="dp-cell">30</div>
+        <div className="dp-cell">1</div>
+        <div className="dp-cell" />
+        <div className="dp-cell" />
+      </div>
+    </div>
+  </div>
+
+  <div className="dp-footer">
+    <span className="dp-icon">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <rect x="3" y="5" width="18" height="16" rx="2" />
+        <line x1="3" y1="10" x2="21" y2="10" />
+        <line x1="8" y1="2" x2="8" y2="6" />
+        <line x1="16" y1="2" x2="16" y2="6" />
+      </svg>
+    </span>
+    <span className="dp-clear">Clear dates</span>
+  </div>
+</section>
+
 <section className="listing-section" id="reviews">
   <h2 className="reviews-score">★ 4.9 · 12 reviews</h2>
 
@@ -305,7 +444,7 @@ const LocationDetailsPage = () => {
 
 <section className="gray-section">
   <div className="wrap">
-    <h2 className="section__title">Nearby eighborhoods</h2>
+    <h2 className="section__title">Explore Options</h2>
     <div className="link-grid">
       <a href="#">Chelsea</a>
       <a href="#">Barlake</a>
@@ -317,7 +456,7 @@ const LocationDetailsPage = () => {
       <a href="#">Financial District</a>
     </div>
 
-    <h2 className="section__title">Other homes you may like</h2>
+    <h2 className="section__title">Unique Stays On Airbnb</h2>
     <div className="link-grid">
       <a href="search.html">Grand Oasis</a>
       <a href="search.html">Historic Retreat</a>
