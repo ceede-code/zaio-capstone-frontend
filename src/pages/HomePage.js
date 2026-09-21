@@ -81,18 +81,6 @@ const Home = () => {
     </div>
   </div>
 
-  {/* <section className="hero">
-    <div className="hero__media">
-      <img src="https://boutique-homes-prod.sfo3.cdn.digitaloceanspaces.com/properties/4165/008-villa-camps-bay_villa_cape-town-south-africa_exterior-1753146831769.jpg" alt="cover photo" />
-    </div>
-    <div className="hero__media-fallback"></div>
-
-    <div className="hero__content">
-      <h1 className="hero__title">Not sure where to go? Perfect.</h1>
-      <button className="hero__cta">Get inspired</button>
-    </div>
-  </section> */}
-
   <section className="hero">
   <div className="hero__media">
     <img
